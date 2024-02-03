@@ -1,0 +1,62 @@
+.slbOverlay,
+.slbWrapOuter,
+.slbWrap,
+.slbWrapOuter:before,
+.slbContentOuter,
+.slbContent,
+.slbImageWrap,
+.slbImageWrap:after,
+.slbImage,
+.slbCaption,
+.slbCloseBtn,
+.slbLoadingText,
+.slbArrows,
+.slbArrow {
+  display: none !important;
+}
+
+.slbLoading .slbArrows {
+  display: none !important;
+}
+
+.slbIframeCont {
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  padding-top: 0 !important;
+  margin: 0 !important;
+}
+
+.slbIframe {
+  display: none !important;
+}
+
+.slbElement.slbActive {
+  pointer-events: none !important;
+  cursor: default !important;
+  background: none !important;
+  box-shadow: none !important;
+}
+
+.slbActive .slbOverlay,
+.slbActive .slbWrapOuter,
+.slbActive .slbWrap:before,
+.slbActive .slbContentOuter,
+.slbActive .slbContent,
+.slbActive .slbImageWrap,
+.slbActive .slbImageWrap:after,
+.slbActive .slbImage,
+.slbActive .slbCaption,
+.slbActive .slbCloseBtn,
+.slbActive .slbArrows,
+.slbActive .slbArrow {
+  display: none !important;
+}
+
+.slbActive .slbIframeCont {
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  padding-top: 0 !important;
+  margin: 0 !important;
+}
