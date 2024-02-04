@@ -258,6 +258,9 @@
 		font-size: 30px;
 		line-height: 55px;
 	}
+	.welcome_text h4 {
+		font-size: 25px;
+	}
 	.home_banner_area .banner_inner .banner_content p br {
 		display: none;
 	}
