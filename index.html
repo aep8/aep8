@@ -25,9 +25,14 @@
         <link rel="stylesheet" href="css/responsive.css">
     </head>
     <body>
-        
+       <!-- <div id="notificationBar" style="display: none;">
+    <span>Now offering academic and professional communication consulting at Rice. <b><a href="capc.html" target="_blank"> Click here for more information. </a></b> </span>
+    <button onclick="closeNotification()"><i class="lnr lnr-cross"></i></button>
+</div> -->
+
         <!--================Header Menu Area =================-->
         <header class="header_area">
+
             <div class="main_menu">
             	<nav class="navbar navbar-expand-lg navbar-light">
 					<div class="container box_1620">
@@ -39,6 +44,7 @@
 							<span class="icon-bar"></span>
 						</button>
 						<!-- Collect the nav links, forms, and other content for toggling -->
+						
 						<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 							<ul class="nav navbar-nav menu_nav ml-auto">
 							<!--<li class="nav-item active"><a class="nav-link" href="index.html">🇺🇸 EN</a></li> 
@@ -620,5 +626,25 @@
         <script src="vendors/counter-up/jquery.counterup.min.js"></script>
         <script src="js/mail-script.js"></script>
         <script src="js/theme.js"></script>
+        <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+    var notificationBar = document.getElementById('notificationBar');
+    var header = document.querySelector('.header_area'); // Select the header
+    if (notificationBar && header) {
+        notificationBar.style.display = 'block';  // Display the notification bar
+        header.style.top = notificationBar.offsetHeight + 'px';  // Adjust the header's top property to match the notification bar's height
+    }
+});
+
+function closeNotification() {
+    var header = document.querySelector('.header_area');
+    if (header) {
+        header.style.top = '0px';  // Reset the header's top position when the notification bar is closed
+    }
+    document.getElementById('notificationBar').style.display = 'none';  // Hide the notification bar
+}
+
+</script>
     </body>
 </html>

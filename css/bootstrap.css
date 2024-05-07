@@ -522,6 +522,15 @@ mark {
 	padding-bottom:20px;
 }
 
+.video-fluid-2 {
+    max-width: 90%;
+    padding-left: 10%;
+	width: 100%;
+    height: auto;
+    padding-top:20px;
+	padding-bottom:20px;
+}
+
 .img-thumbnail {
     padding: .25rem;
     background-color: #fff;

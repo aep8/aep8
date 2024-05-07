@@ -127,6 +127,44 @@ button:focus {
     color: #777777;
     margin-bottom: 0px; }
 
+#notificationBar {
+    position: relative;
+    width: 100%;
+    background-color: #121212;
+    color: white;
+    text-align: center;
+    padding: 10px 20px; /* Maintains lateral padding */
+    box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+#notificationBar span {
+    display: block; /* Keeps span as block element */
+    /* Removed white-space, overflow, and text-overflow properties */
+}
+
+#notificationBar button {
+    position: absolute;
+    right: 10px; /* Adjusts for better spacing */
+    top: 50%;
+    transform: translateY(-50%); /* Centers the button vertically */
+    background: none;
+    border: none;
+    color: white;
+    font-size: 20px; /* Adjusted for better visibility */
+    cursor: pointer;
+}
+
+@media (max-width: 800px) {
+    #notificationBar {
+        padding-left: 10px;
+        padding-right: 40px; 
+    }
+
+    #notificationBar button {
+        font-size: 16px; /* Smaller button on smaller screens */
+    }
+}
 /* End Main Title Area css
 ============================================================================================ */
 /*---------------------------------------------------- */
@@ -377,14 +415,14 @@ button:focus {
 .banner_area {
   position: relative;
   z-index: 1;
-  min-height: 350px;
+  min-height: 200px;
   background-image: -moz-linear-gradient(0deg, #00205B 0%, #00205B 100%);
   background-image: -webkit-linear-gradient(0deg, #00205B 0%, #00205B 100%);
   background-image: -ms-linear-gradient(0deg, #00205B 0%, #00205B 100%);
   margin-bottom: 120px; }
   .banner_area .box_1620 {
     background: #fff;
-    min-height: 360px;
+    min-height: 200px;
     border-radius: 12px;
     position: relative;
     bottom: -120px;
@@ -393,7 +431,7 @@ button:focus {
     position: relative;
     overflow: hidden;
     width: 100%;
-    min-height: 360px;
+    min-height: 200px;
     z-index: 1; }
     .banner_area .banner_inner .banner_content h2 {
       color: #222222;
@@ -1178,7 +1216,7 @@ button:focus {
   margin-bottom: 30px; }
 
 .sample-text-area {
-  padding: 100px 0px; }
+  padding: 70px 0px; }
   .sample-text-area .title_color {
     margin-bottom: 30px; }
   .sample-text-area p {
@@ -1406,7 +1444,7 @@ button:focus {
   .element-wrap {
     margin-top: 30px; } }
 b, sup, sub, u, del {
-  color: #f8b600; }
+  color: #00205B; }
 
 h1 {
   font-size: 36px; }
@@ -1746,7 +1784,7 @@ h6 {
   position: absolute;
   width: 14px;
   height: 14px;
-  border: 3px solid #f8b600;
+  border: 3px solid #00205B;
   background: #fff;
   top: 4px;
   left: 0;
