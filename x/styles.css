@@ -219,6 +219,7 @@ hr {
 }
 
 .ad-label {
+ display: flex;
     color: #aaa; /* Match the color of the handle */
     font-family: 'Chirp', Arial, sans-serif; /* Use the same font */
     font-size: 15px; /* Adjust the size to match the handle */
