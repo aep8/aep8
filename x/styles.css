@@ -43,6 +43,7 @@ body {
     justify-content: center;
     overflow-x: hidden;
     overscroll-behavior: none; /* Prevents the bounce effect at the edges of the document */
+
 }
 
 .sidebar ul li span,
@@ -183,6 +184,15 @@ hr {
     flex: 1;
 }
 
+.verification-mark {
+    width: 17px; /* Adjust the size to match the name text */
+    height: 17px; /* Adjust the size to match the name text */
+    margin-left: 0px; /* Space between the name and the verification mark */
+    margin-right: 7px; /* Space between the name and the verification mark */
+
+}
+
+
 .user-image {
     width: 50px;
     height: 50px;
@@ -193,13 +203,26 @@ hr {
 .user-info {
     display: flex;
     align-items: center;
-    margin-bottom: 0px;
-    cursor: pointer;
+    justify-content: space-between; /* Ensures space between the handle and the ad label */
+        cursor: pointer;
+
+}
+
+.user-info span {
+    display: flex;
+    align-items: center;
 }
 
 .user-name {
-    font-weight: bold;
-    margin-right: 5px;
+    margin-right: 5px; /* Adjust space between name and handle */
+        font-weight: bold;
+}
+
+.ad-label {
+    color: #aaa; /* Match the color of the handle */
+    font-family: 'Chirp', Arial, sans-serif; /* Use the same font */
+    font-size: 15px; /* Adjust the size to match the handle */
+    margin-left: auto; /* Pushes the ad label to the far right */
 }
 
 .user-handle {
@@ -336,6 +359,10 @@ hr {
     position: relative; /* Needed for absolute positioning of the circle */
 }
 
+.tweet-action-right-left, .tweet-action-right-right {
+    position: relative;
+}
+
 .tweet-action img, .tweet-action-right img {
     width: 20px;
     height: 20px;
@@ -350,11 +377,12 @@ hr {
 }
 
 .tweet-action:hover img, .tweet-action:hover span, .tweet-action:hover::before,
-.tweet-action-right .tweet-action:hover img, .tweet-action-right .tweet-action:hover span, .tweet-action-right .tweet-action:hover::before {
+.tweet-action-right-left:hover img, .tweet-action-right-left:hover span, .tweet-action-right-left:hover::before,
+.tweet-action-right-right:hover img, .tweet-action-right-right:hover span, .tweet-action-right-right:hover::before {
     filter: none; /* Reset filter */
 }
 
-.tweet-action:hover::before, .tweet-action-right .tweet-action:hover::before {
+.tweet-action:hover::before, .tweet-action-right-left:hover::before, .tweet-action-right-right:hover::before {
     content: '';
     position: absolute;
     width: 35px;
@@ -368,14 +396,14 @@ hr {
 
 /* Specific styles for each action on hover */
 .tweet-action:hover img,
-.tweet-action-right .tweet-action:nth-child(1):hover img,
-.tweet-action-right .tweet-action:nth-child(2):hover img {
+.tweet-action-right-left:hover img,
+.tweet-action-right-right:hover img {
     filter: invert(50%) sepia(99%) saturate(1726%) hue-rotate(186deg) brightness(93%) contrast(101%); /* Sky blue filter: #0099f0 */
 }
 
 .tweet-action:hover::before,
-.tweet-action-right .tweet-action:nth-child(1):hover::before,
-.tweet-action-right .tweet-action:nth-child(2):hover::before {
+.tweet-action-right-left:hover::before,
+.tweet-action-right-right:hover::before {
     background-color: rgba(0, 153, 240, 0.2); /* Translucent sky blue circle: #0099f0 */
 }
 
@@ -396,8 +424,8 @@ hr {
 }
 
 .tweet-action:hover span,
-.tweet-action-right .tweet-action:nth-child(1):hover span,
-.tweet-action-right .tweet-action:nth-child(2):hover span {
+.tweet-action-right-left:hover span,
+.tweet-action-right-right:hover span {
     color: #0099f0; /* Sky blue */
 }
 
@@ -410,23 +438,54 @@ hr {
 }
 
 /* Ensuring independence for tweet-action-right elements */
-.tweet-action-right .tweet-action:nth-child(1):hover img {
-    filter: invert(50%) sepia(99%) saturate(1826%) hue-rotate(186deg) brightness(93%) contrast(101%); /* Sky blue filter: #0099f0 */
+.tweet-action-right-left:hover img {
+    filter: invert(50%) sepia(99%) saturate(1726%) hue-rotate(186deg) brightness(93%) contrast(101%); /* Sky blue filter: #0099f0 */
 }
 
-.tweet-action-right .tweet-action:nth-child(1):hover::before {
+.tweet-action-right-left:hover::before {
     background-color: rgba(0, 153, 240, 0.2); /* Translucent sky blue circle: #0099f0 */
 }
 
-.tweet-action-right .tweet-action:nth-child(2):hover img {
-    filter: invert(50%) sepia(99%) saturate(1826%) hue-rotate(186deg) brightness(93%) contrast(101%); /* Sky blue filter: #0099f0 */
+.tweet-action-right-right:hover img {
+    filter: invert(50%) sepia(99%) saturate(1726%) hue-rotate(186deg) brightness(93%) contrast(101%); /* Sky blue filter: #0099f0 */
 }
 
-.tweet-action-right .tweet-action:nth-child(2):hover::before {
+.tweet-action-right-right:hover::before {
     background-color: rgba(0, 153, 240, 0.2); /* Translucent sky blue circle: #0099f0 */
 }
 
-.tweet-action-right .tweet-action:nth-child(1):hover span,
-.tweet-action-right .tweet-action:nth-child(2):hover span {
+.tweet-action-right-left:hover span,
+.tweet-action-right-right:hover span {
     color: #0099f0; /* Sky blue */
 }
+
+
+/* Video container styling */
+.video-container {
+    width: 100%;
+    position: relative; /* Make container relative for absolute positioning of the overlay */
+    padding: 5px 0;
+}
+
+.video-container video {
+    width: 100%;
+    border-radius: 10px; /* Rounded borders */
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent; /* Invisible overlay */
+    cursor: pointer;
+    z-index: 1;
+}
+
+/* Hide controls by default and show on hover */
+.video-container:hover video {
+    outline: none;
+}
+
+
