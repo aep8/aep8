@@ -74,6 +74,7 @@ body {
     display: flex; /* Changed back to flex to stack items vertically */
     align-items: center;
     padding: 15px; /* Add padding for button-like shape */
+    margin-top: 5px;
     border-radius: 30px; /* Add border-radius for rounded corners */
     transition: background-color 0.3s ease; /* Smooth transition */
     cursor: pointer; /* Change mouse pointer to hand */
