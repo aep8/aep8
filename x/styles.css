@@ -158,6 +158,7 @@ body {
 .tweet {
     padding: 15px 0;
     margin-top: 0px; /* Add margin to push content below the top-section */
+        position: relative; /* To contain the absolutely positioned Ad label */
 }
 
 hr {
@@ -203,7 +204,7 @@ hr {
 .user-info {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Ensures space between the handle and the ad label */
+    gap: 5px; /* Space between name, verification mark, and handle */
         cursor: pointer;
 
 }
@@ -214,16 +215,19 @@ hr {
 }
 
 .user-name {
-    margin-right: 5px; /* Adjust space between name and handle */
+    margin-right: 0px; /* Adjust space between name and handle */
         font-weight: bold;
 }
 
+
 .ad-label {
- display: flex;
+    position: absolute;
+    top: 0;
+    right: 0;
     color: #aaa; /* Match the color of the handle */
     font-family: 'Chirp', Arial, sans-serif; /* Use the same font */
-    font-size: 15px; /* Adjust the size to match the handle */
-    margin-left: auto; /* Pushes the ad label to the far right */
+    font-size: 16px; /* Adjust the size to match the handle */
+    padding: 15px 0 0 0; /* Optional: padding for better spacing */
 }
 
 .user-handle {
