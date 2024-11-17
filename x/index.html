@@ -347,16 +347,9 @@ Just drove by and learned about the fire at Joe’s chicken shack. Good thing it
                 <span class="user-handle">@jaypkr_ · 5h</span>
             </div>
             <p class="tweet-content">
-                Great timelapse of yesterday’s eclipse, makes you appreciate the cosmic dance
+                Great pic of yesterday’s eclipse, makes you appreciate the cosmic dance
             </p>
-        <!-- Video section -->
-<div class="video-container">
-    <video id="video" width="100%" muted playsinline>
-        <source src="eclipse.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div id="video-overlay" class="video-overlay"></div>
-</div>
+                               <img src="img/eclipse.png" alt="Tweet Image" class="tweet-image"> <!-- Added image -->
 
             <div class="tweet-bar">
     <div class="tweet-action">
@@ -584,6 +577,7 @@ Just a reminder: All FedEx Ship Centers will now operate from 9 AM to 5 PM on we
         videoContainers.forEach(container => {
             const video = container.querySelector('video');
             const overlay = container.querySelector('.video-overlay');
+            let firstTap = true; // Track first tap for each video
 
             // Observer to ensure only one video plays at a time
             const observer = new IntersectionObserver(function (entries) {
@@ -619,11 +613,25 @@ Just a reminder: All FedEx Ship Centers will now operate from 9 AM to 5 PM on we
             });
 
             container.addEventListener('mouseenter', function () {
-                video.setAttribute('controls', 'controls');
+                if (!firstTap) {
+                    video.setAttribute('controls', 'controls');
+                }
             });
 
             container.addEventListener('mouseleave', function () {
                 video.removeAttribute('controls');
+            });
+
+            video.addEventListener('click', function () {
+                if (firstTap) {
+                    // First tap: unmute and keep controls hidden
+                    video.muted = false;
+                    video.controls = false;
+                    firstTap = false; // Mark first tap as handled
+                } else {
+                    // Subsequent taps: show controls
+                    video.controls = true;
+                }
             });
         });
 
@@ -645,6 +653,7 @@ Just a reminder: All FedEx Ship Centers will now operate from 9 AM to 5 PM on we
         }
     });
 </script>
+
 
 
 <script>

@@ -556,7 +556,7 @@ hr {
     text-align: center;
     padding: 20px;
     margin-top: 10px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
     background-color: black;
     color: grey;
 }
@@ -564,7 +564,7 @@ hr {
 .end-message {
     font-family: 'Chirp', Arial, sans-serif;
     font-size: 18px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
 }
 
 .blank {
