@@ -671,3 +671,21 @@ hr {
         display: none; /* Hide on desktop */
     }
 }
+
+@media only screen and (max-width: 768px) {
+    .custom-video::-webkit-media-controls {
+        display: none !important; /* Hide all video controls on mobile */
+    }
+
+    .custom-video::-webkit-media-controls-panel {
+        display: none !important;
+    }
+
+    .custom-video::-webkit-media-controls-play-button {
+        display: none !important;
+    }
+
+    .custom-video::-webkit-media-controls-start-playback-button {
+        display: none !important;
+    }
+}
