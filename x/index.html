@@ -91,7 +91,7 @@
         </div>
         <div class="right-column">
             <div class="user-info">
-                <span class="user-name">National News Network</span>
+                <span class="user-name">NNNetwork</span>
                                 <img src="img/icons/v2.png" alt="Verification Mark" class="verification-mark">
                 <span class="user-handle">@NNNetwork · 1h</span>
             </div>
@@ -197,7 +197,7 @@
             </p>
         <!-- Video section -->
 <div class="video-container">
-    <video id="video" width="100%" controls muted playsinline>
+    <video id="video" width="100%" muted playsinline>
         <source src="uniqlo.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -297,7 +297,7 @@ Just drove by and learned about the fire at Joe’s chicken shack. Good thing it
             </p>
              <!-- Video section -->
 <div class="video-container">
-    <video id="video" width="100%" controls muted playsinline>
+    <video id="video" width="100%" muted playsinline>
         <source src="1neg.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -351,7 +351,7 @@ Just drove by and learned about the fire at Joe’s chicken shack. Good thing it
             </p>
         <!-- Video section -->
 <div class="video-container">
-    <video id="video" width="100%" controls muted playsinline>
+    <video id="video" width="100%" muted playsinline>
         <source src="eclipse.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -453,7 +453,7 @@ Leo Davis is running one of the most crooked and corrupt campaigns in the histor
             </p>
              <!-- Video section -->
 <div class="video-container">
-    <video id="video" width="100%" controls muted playsinline>
+    <video id="video" width="100%" muted playsinline>
         <source src="2neg.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -701,20 +701,22 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Add scroll event listener for mobile
         window.addEventListener("scroll", function () {
-            console.log(`ScrollY: ${window.scrollY}, LastScrollY: ${lastScrollY}`); // Debugging scroll values
-            
-            if (window.scrollY > lastScrollY) {
-                console.log("Scrolling down: hiding top-section");
-                topSection.style.transform = "translateY(-100%)"; // Hide top-section
+            if (window.scrollY === 0) {
+                // Always show top-section when at the top of the page
+                topSection.style.transform = "translateY(0)";
+            } else if (window.scrollY > lastScrollY) {
+                // Scrolling down: hide top-section
+                topSection.style.transform = "translateY(-100%)";
             } else {
-                console.log("Scrolling up: showing top-section");
-                topSection.style.transform = "translateY(0)"; // Show top-section
+                // Scrolling up: show top-section
+                topSection.style.transform = "translateY(0)";
             }
-            lastScrollY = window.scrollY; // Update the last scroll position
+
+            // Update the last scroll position
+            lastScrollY = window.scrollY;
         });
     }
 });
-
 </script>
 
 
