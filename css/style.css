@@ -2701,6 +2701,23 @@ h6 {
       .feature_area.white_feature .feature_item:hover {
         background: #fff; }
 
+.feature_area_2 {
+  background: #00205B; }
+    .feature_area_2 h2 {
+    color: #ffffff; }
+    .feature_area_2 .main_title p {
+    color: #ffffff; }
+    .feature_area_2 .feature_item h4 {
+    color: #222222;
+    font-size: 21px;
+    font-family: "Merriweather", serif;
+    font-weight: bold;
+    margin-bottom: 10px;
+    margin-top: 20px; }
+    .feature_area_2 .img-fluid {
+    border-radius: 10px; }
+
+
 .feature_inner {
   margin-bottom: -30px; }
 
