@@ -555,3 +555,108 @@ hr {
     font-size: 18px;
     margin-bottom: 20px;
 }
+
+.blank {
+    height: 40px;
+    width: 100%;
+    clear: both;
+}
+
+
+@media only screen and (max-width: 768px) {
+    /* Hide sidebars */
+    .sidebar, .right-sidebar {
+        display: none;
+    }
+
+    /* Main content takes full width */
+    .main-content {
+        width: 100%;
+        margin: 0; /* Remove side margins */
+        border: none; /* Remove borders */
+    }
+
+    /* Make the page scrollable vertically only */
+    body {
+        overflow-x: hidden;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .top-section {
+        width: 100%; /* Occupy full width */
+        left-margin: -20px; /* Remove any margins */
+        padding-top: 38px; /* Remove padding to avoid any extra space */
+        transition: transform 0.3s ease-in-out;
+        transform: translateY(0); /* Default position */
+    }
+
+    .top-section .tab {
+        flex: 1; /* Ensure equal width distribution */
+        text-align: center; /* Center align the text */
+        padding: 15px 0; /* Keep the padding for consistency */
+        margin: 0; /* Ensure no unwanted margins */
+    }
+    
+    .top-section .tab:hover {
+        background-color: transparent; /* Remove hover background effect */
+        color: inherit; /* Keep text color unchanged */
+    }
+
+    .top-section .following:hover {
+        color: inherit; /* Remove hover color change for "Following" */
+    }
+    
+    .top-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 48px; /* Stripe height */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1; /* Ensure it appears above the tabs */
+    }
+
+    .top-section::before {
+        background-image: url('img/icons/x.png'); /* Add the image */
+        background-size: 24px 24px; /* Set the image size */
+        background-repeat: no-repeat;
+        background-position: center; /* Center the image */
+    }
+    
+    .blank {
+    height: 80px;
+    width: 100%;
+    clear: both;
+}
+}
+
+@media only screen and (max-width: 768px) {
+    .bottom-strip {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 55px; /* Height of the strip */
+        background-color: black;
+        display: flex;
+        justify-content: space-around; /* Evenly distribute icons */
+        align-items: center; /* Center icons vertically */
+        z-index: 1000; /* Ensure it stays above other elements */
+        border-top: 1px solid #333; /* Add grey top border */
+    }
+
+    .strip-icon {
+        width: 30px; /* Icon size */
+        height: 30px;
+    }
+}
+
+@media only screen and (min-width: 769px) {
+    .bottom-strip {
+        display: none; /* Hide on desktop */
+    }
+}

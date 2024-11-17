@@ -36,7 +36,7 @@
     <div class="tab for-you">For you</div>
     <div class="tab following">Following</div>
 </div>
-        <div style="height:40px; width:100%; clear:both;"></div>
+        <div class="blank"></div>
 <div class="tweet">
     <div class="tweet-layout">
         <div class="left-column">
@@ -197,7 +197,7 @@
             </p>
         <!-- Video section -->
 <div class="video-container">
-    <video id="video" width="100%" controls muted>
+    <video id="video" width="100%" controls muted playsinline>
         <source src="uniqlo.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -239,7 +239,7 @@
         <div class="tweet">
     <div class="tweet-layout">
         <div class="left-column">
-            <img src="img/jd.png" alt="User Image" class="user-image">
+            <img src="img/ld.png" alt="User Image" class="user-image">
         </div>
         <div class="right-column">
             <div class="user-info">
@@ -297,7 +297,7 @@ Just drove by and learned about the fire at Joe’s chicken shack. Good thing it
             </p>
              <!-- Video section -->
 <div class="video-container">
-    <video id="video" width="100%" controls muted>
+    <video id="video" width="100%" controls muted playsinline>
         <source src="1neg.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -351,7 +351,7 @@ Just drove by and learned about the fire at Joe’s chicken shack. Good thing it
             </p>
         <!-- Video section -->
 <div class="video-container">
-    <video id="video" width="100%" controls muted>
+    <video id="video" width="100%" controls muted playsinline>
         <source src="eclipse.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -453,7 +453,7 @@ Leo Davis is running one of the most crooked and corrupt campaigns in the histor
             </p>
              <!-- Video section -->
 <div class="video-container">
-    <video id="video" width="100%" controls muted>
+    <video id="video" width="100%" controls muted playsinline>
         <source src="2neg.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
@@ -565,6 +565,15 @@ Just a reminder: All FedEx Ship Centers will now operate from 9 AM to 5 PM on we
     </div>
     </div>
     </div>
+    
+    <div class="bottom-strip">
+    <img src="img/icons/home.png" alt="Icon 1" class="strip-icon">
+    <img src="img/icons/search.png" alt="Icon 2" class="strip-icon">
+    <img src="img/icons/grok.png" alt="Icon 3" class="strip-icon">
+    <img src="img/icons/notifications.png" alt="Icon 4" class="strip-icon">
+    <img src="img/icons/messages.png" alt="Icon 5" class="strip-icon">
+    <img src="img/icons/notes.png" alt="Icon 6" class="strip-icon">
+</div>
     
 <script>
     document.addEventListener("DOMContentLoaded", function () {
@@ -682,9 +691,48 @@ Just a reminder: All FedEx Ship Centers will now operate from 9 AM to 5 PM on we
     });
 </script>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const isMobile = window.innerWidth <= 768; // Ensure this runs only on mobile screens
+
+    if (isMobile) {
+        const topSection = document.querySelector(".top-section");
+        let lastScrollY = window.scrollY;
+
+        // Add scroll event listener for mobile
+        window.addEventListener("scroll", function () {
+            console.log(`ScrollY: ${window.scrollY}, LastScrollY: ${lastScrollY}`); // Debugging scroll values
+            
+            if (window.scrollY > lastScrollY) {
+                console.log("Scrolling down: hiding top-section");
+                topSection.style.transform = "translateY(-100%)"; // Hide top-section
+            } else {
+                console.log("Scrolling up: showing top-section");
+                topSection.style.transform = "translateY(0)"; // Show top-section
+            }
+            lastScrollY = window.scrollY; // Update the last scroll position
+        });
+    }
+});
+
+</script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const bottomStrip = document.querySelector(".bottom-strip");
 
+    window.addEventListener("scroll", function () {
+        if (window.scrollY === 0) {
+            // Fully visible when at the top of the page
+            bottomStrip.style.opacity = "1";
+        } else {
+            // 50% transparent when scrolled down
+            bottomStrip.style.opacity = "0.5";
+        }
+    });
+});
+</script>
 
 
 
