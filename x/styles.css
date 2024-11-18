@@ -105,7 +105,7 @@ body {
 
 .main-content {
     width: 37%;
-    padding: 20px;
+    padding: 20px 20px 20px;
     margin: 0 25%;
     border-left: 1px solid #333;
     border-right: 1px solid #333;
@@ -590,6 +590,7 @@ hr {
         width: 100%;
         margin: 0; /* Remove side margins */
         border: none; /* Remove borders */
+    padding: 20px 10px 20px;
     }
 
     /* Make the page scrollable vertically only */
