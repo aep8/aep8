@@ -746,6 +746,47 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const tweetActions = document.querySelectorAll(".tweet-action");
+
+        tweetActions.forEach((action, index) => {
+            // Apply only to icons 2 and 3 (index 1 and 2)
+            if ([1, 2].includes(index)) {
+                action.addEventListener("click", function () {
+                    const icon = this.querySelector("img");
+                    const count = this.querySelector("span");
+
+                    // Toggle active state
+                    if (this.classList.contains("active")) {
+                        // Remove active state
+                        this.classList.remove("active");
+                        icon.style.filter = ""; // Reset icon color
+                        count.style.color = ""; // Reset text color
+                        if (index === 2) {
+                            // Revert to the original icon for Like (icon 3)
+                            icon.src = "img/icons/3.png";
+                        }
+                    } else {
+                        // Add active state with specific colors
+                        this.classList.add("active");
+                        if (index === 1) {
+                            // Icon 2 (Retweet)
+                            icon.style.filter = "invert(64%) sepia(45%) saturate(500%) hue-rotate(90deg) brightness(95%) contrast(92%)"; // Green
+                            count.style.color = "#00bc7b"; // Green text
+                        } else if (index === 2) {
+                            // Icon 3 (Like)
+                            icon.style.filter = "invert(45%) sepia(88%) saturate(4576%) hue-rotate(315deg) brightness(101%) contrast(101%)"; // Red
+                            count.style.color = "#fc0080"; // Red text
+                            // Change to the new icon
+                            icon.src = "img/icons/3b.png";
+                        }
+                    }
+                });
+            }
+        });
+    });
+</script>
 
 
 

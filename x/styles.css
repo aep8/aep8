@@ -411,6 +411,9 @@ hr {
     transition: color 0.15s ease; /* Smooth transition for color */
 }
 
+/* Desktop (Hover effects enabled) */
+@media only screen and (min-width: 769px) {
+
 .tweet-action:hover img, .tweet-action:hover span, .tweet-action:hover::before,
 .tweet-action-right-left:hover img, .tweet-action-right-left:hover span, .tweet-action-right-left:hover::before,
 .tweet-action-right-right:hover img, .tweet-action-right-right:hover span, .tweet-action-right-right:hover::before {
@@ -492,6 +495,8 @@ hr {
 .tweet-action-right-left:hover span,
 .tweet-action-right-right:hover span {
     color: #0099f0; /* Sky blue */
+}
+
 }
 
 
@@ -671,3 +676,4 @@ hr {
         display: none; /* Hide on desktop */
     }
 }
+
