@@ -202,7 +202,7 @@ hr {
     width: 17px; /* Adjust the size to match the name text */
     height: 17px; /* Adjust the size to match the name text */
     margin-left: 0px; /* Space between the name and the verification mark */
-    margin-right: 7px; /* Space between the name and the verification mark */
+    margin-right: 0px; /* Space between the name and the verification mark */
 
 }
 
