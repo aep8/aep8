@@ -671,7 +671,7 @@ Just a reminder: All FedEx Ship Centers will now operate from 9 AM to 5 PM on we
 </script>
 
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function () {
         const tweetBars = document.querySelectorAll(".tweet-bar");
 
         tweetBars.forEach(tweetBar => {
@@ -680,7 +680,7 @@ Just a reminder: All FedEx Ship Centers will now operate from 9 AM to 5 PM on we
 
             // Generate random numbers for the first three spans (#.#K format)
             for (let i = 0; i < 3; i++) {
-                const randomValue = (Math.random() * 9 + 1).toFixed(1); // Generate from 1.0 to 9.9
+                const randomValue = (Math.floor(Math.random() * 9) + 1) + '.' + (Math.floor(Math.random() * 9) + 1); // Generate random #.# where both digits are 1-9
                 randomNumbers.push(randomValue);
                 spans[i].textContent = `${randomValue}K`;
             }
@@ -690,10 +690,10 @@ Just a reminder: All FedEx Ship Centers will now operate from 9 AM to 5 PM on we
                 .map(num => parseInt(num[0])) // Get the first digit of each number
                 .reduce((sum, digit) => sum + digit, 0); // Sum the digits
 
-            const firstDigit = sumOfFirstDigits * 3;
+            const firstDigit = sumOfFirstDigits * 3; // Allow the result to be two digits
 
-            // Generate a random second digit excluding zero
-            const secondDigit = Math.floor(Math.random() * 9) + 1; // Random digit from 1 to 9
+            // Generate a random second digit between 1 and 9
+            const secondDigit = Math.floor(Math.random() * 9) + 1;
 
             // Combine the two digits into the final value
             const fourthValue = `${firstDigit}.${secondDigit}K`;
@@ -701,6 +701,8 @@ Just a reminder: All FedEx Ship Centers will now operate from 9 AM to 5 PM on we
         });
     });
 </script>
+
+
 
 <script>
 document.addEventListener("DOMContentLoaded", function () {
