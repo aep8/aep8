@@ -177,6 +177,7 @@ hr {
 
 .tweet-content {
     margin-top: 5px;
+    margin-bottom: 10px;
 }
 
 .tweet-image {
@@ -504,7 +505,7 @@ hr {
 .video-container {
     width: 100%;
     position: relative; /* Make container relative for absolute positioning of the overlay */
-    padding: 5px 0;
+    padding: 0px 0px 5px;
 }
 
 .video-container video {
