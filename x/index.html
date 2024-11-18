@@ -747,11 +747,14 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const tweetActions = document.querySelectorAll(".tweet-action");
+document.addEventListener("DOMContentLoaded", function () {
+    const tweetBars = document.querySelectorAll(".tweet-bar");
+
+    tweetBars.forEach(tweetBar => {
+        const tweetActions = tweetBar.querySelectorAll(".tweet-action");
 
         tweetActions.forEach((action, index) => {
-            // Apply only to icons 2 and 3 (index 1 and 2)
+            // Restrict logic to icons 2 and 3 (index 1 and 2 within each tweet-bar)
             if ([1, 2].includes(index)) {
                 action.addEventListener("click", function () {
                     const icon = this.querySelector("img");
@@ -786,7 +789,9 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     });
+});
 </script>
+
 
 
 
