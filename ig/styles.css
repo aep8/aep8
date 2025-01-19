@@ -112,7 +112,7 @@ body {
     justify-content: space-between; /* Evenly distribute user profiles */
     align-items: center;
     margin-bottom: 20px; /* Space between this section and tweets */
-    padding: 10px 1px; /* Optional padding */
+    padding: 10px 5px; /* Optional padding */
 }
 
 .user-profile {
@@ -550,6 +550,12 @@ hr {
 
 
 @media only screen and (max-width: 768px) {
+
+.user-section {
+    margin-left: -10px;
+	margin-right: -10px;
+}
+
  .text-with-icon-grey {
         display: none;
     }
