@@ -107,11 +107,12 @@ body {
 }
 
 .user-section {
+        cursor: pointer; /* Changes cursor to a pointer on hover */
     display: flex;
     justify-content: space-between; /* Evenly distribute user profiles */
     align-items: center;
     margin-bottom: 20px; /* Space between this section and tweets */
-    padding: 10px 5px; /* Optional padding */
+    padding: 10px 1px; /* Optional padding */
 }
 
 .user-profile {
@@ -123,7 +124,7 @@ body {
 }
 
 .user-profile .user-name {
-    font-size: 13px; /* Adjust font size */
+    font-size: 12px; /* Adjust font size */
     color: black; /* Text color */
     text-overflow: ellipsis; /* Add ellipsis for overflow text */
     overflow: hidden;
@@ -200,6 +201,14 @@ hr {
     margin-right: 0px; /* Space between the name and the verification mark */
 }
 
+.verification-mark-2 {
+    width: 17px; /* Adjust the size to match the name text */
+    height: 17px; /* Adjust the size to match the name text */
+    margin-left: 0px; /* Space between the name and the verification mark */
+    margin-right: 0px; /* Space between the name and the verification mark */
+    margin-bottom: 20px;
+}
+
 
 .user-image {
     width: 30px;
@@ -262,6 +271,10 @@ hr {
         font-weight: bold;
 }
 
+.user-name-2 {
+    margin-right: 0px; /* Adjust space between name and handle */
+        font-weight: normal;
+}
 
 .ad-label {
     position: absolute;
@@ -285,6 +298,31 @@ hr {
     top: 0;
     bottom: 0;
     left: calc(50% + 330px); /* Horizontal center minus 580px */
+}
+
+.text-with-icon {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-with-icon-grey {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 16px;
+    color: grey;
+}
+
+.icon-right {
+    width: 16px;
+    height: 16px;
+        cursor: pointer; /* Changes cursor to a pointer on hover */
+
+}
+
+.icon-right:hover {
+    opacity: 0.5; /* Match the hover effect of tweet-bar icons */
 }
 
 .subscribe-box, .live-box {
@@ -395,6 +433,16 @@ hr {
     display: flex;
     align-items: center;
     gap: 5px;
+        cursor: pointer; /* Changes cursor to a pointer on hover */
+
+}
+
+.tweet-action span {
+    font-size: 15px;
+    color: black; 
+        font-weight: 500;
+        margin-left: 2px;
+    margin-right: 15px;
 }
 
 .tweet-action-right {
@@ -402,6 +450,8 @@ hr {
     display: flex;
     align-items: center;
     gap: 10px;
+        cursor: pointer; /* Changes cursor to a pointer on hover */
+
 }
 
 .tweet-action-right-right {
@@ -419,9 +469,7 @@ hr {
 }
 
 
-.tweet-action img {
-	margin-right: 25px;
-}
+
 
 
 
@@ -502,6 +550,9 @@ hr {
 
 
 @media only screen and (max-width: 768px) {
+ .text-with-icon-grey {
+        display: none;
+    }
     /* Hide sidebars */
     .sidebar, .right-sidebar {
         display: none;
@@ -623,3 +674,25 @@ margin-left: -10px;
     }
 }
 
+@keyframes zoomRotateFly {
+    0% {
+        transform: scale(0) rotate(var(--random-angle)) translateY(0);
+        opacity: 0; /* Start fully transparent */
+    }
+    50% {
+        transform: scale(1.5) rotate(0deg) translateY(0);
+        opacity: 1; /* Fully visible at the peak of zoom */
+    }
+    100% {
+        transform: scale(1.5) translateY(-200%);
+        opacity: 0; /* Fade out while moving up */
+    }
+}
+
+.floating-image {
+    position: fixed;
+    width: 100px;
+    pointer-events: none;
+    z-index: 9999;
+    animation: zoomRotateFly 0.6s ease-in-out forwards;
+}
