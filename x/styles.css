@@ -168,7 +168,7 @@ hr {
     border: 0;
     border-top: 1px solid #333;
     margin: 0 -20px; /* Negative margin to offset the padding of .main-content */
-    width: calc(100% + 38px);
+    width: calc(100% + 36px);
 }
 
 .tweet-layout {
@@ -355,7 +355,7 @@ hr {
 .footer {
     position: absolute;
     bottom: 20px; /* Adjust according to your padding */
-    width: calc(100% - 38px); /* Adjust according to your padding */
+    width: calc(100% - 36px); /* Adjust according to your padding */
     color: #585d60;
     font-size: 13px;
     text-align: left;
