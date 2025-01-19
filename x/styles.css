@@ -168,7 +168,7 @@ hr {
     border: 0;
     border-top: 1px solid #333;
     margin: 0 -20px; /* Negative margin to offset the padding of .main-content */
-    width: calc(100% + 40px);
+    width: calc(99% + 36px);
 }
 
 .tweet-layout {
@@ -675,12 +675,4 @@ hr {
     .bottom-strip {
         display: none; /* Hide on desktop */
     }
-    
-    hr {
-    border: 0;
-    border-top: 1px solid #333;
-    margin: 0 -20px; /* Negative margin to offset the padding of .main-content */
-    width: calc(99% + 36px);
 }
-}
-
