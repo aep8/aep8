@@ -168,7 +168,7 @@ hr {
     border: 0;
     border-top: 1px solid #333;
     margin: 0 -20px; /* Negative margin to offset the padding of .main-content */
-    width: calc(100% + 36px);
+    width: calc(99% + 36px);
 }
 
 .tweet-layout {
@@ -181,7 +181,7 @@ hr {
 }
 
 .tweet-image {
-    width: 100%; /* Ensure the image takes the full width of the tweet content */
+    width: 99%; /* Ensure the image takes the full width of the tweet content */
     border-radius: 15px; /* Rounded corners */
     border: 1px solid #2f3337; /* Grey 1px outline */
     margin-bottom: 5px; /* Space between the text and the image */
@@ -330,7 +330,7 @@ hr {
     color: white; /* Text color */
     font-family: 'Chirp', Arial, sans-serif;
     font-size: 16px;
-    width: 100%;
+    width: 99%;
 }
 
 .search-box:focus-within {
@@ -355,7 +355,7 @@ hr {
 .footer {
     position: absolute;
     bottom: 20px; /* Adjust according to your padding */
-    width: calc(100% - 36px); /* Adjust according to your padding */
+    width: calc(99% - 36px); /* Adjust according to your padding */
     color: #585d60;
     font-size: 13px;
     text-align: left;
@@ -501,13 +501,13 @@ hr {
 
 /* Video container styling */
 .video-container {
-    width: 100%;
+    width: 99%;
     position: relative; /* Make container relative for absolute positioning of the overlay */
     padding: 0px 0px 5px;
 }
 
 .video-container video {
-    width: 100%;
+    width: 99%;
     border-radius: 15px; /* Rounded borders */
         border: 1px solid #2f3337; /* Grey 1px outline */
 
@@ -517,8 +517,8 @@ hr {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 99%;
+    height: 99%;
     background: transparent; /* Invisible overlay */
     cursor: pointer;
     z-index: 1;
@@ -573,7 +573,7 @@ hr {
 
 .blank {
     height: 40px;
-    width: 100%;
+    width: 99%;
     clear: both;
 }
 
@@ -586,7 +586,7 @@ hr {
 
     /* Main content takes full width */
     .main-content {
-        width: 100%;
+        width: 99%;
         margin: 0; /* Remove side margins */
         border: none; /* Remove borders */
     padding: 20px 10px 20px;
@@ -600,7 +600,7 @@ hr {
 
 @media only screen and (max-width: 768px) {
     .top-section {
-        width: 100%; /* Occupy full width */
+        width: 99%; /* Occupy full width */
         left-margin: -20px; /* Remove any margins */
         padding-top: 38px; /* Remove padding to avoid any extra space */
         transition: transform 0.3s ease-in-out;
@@ -628,7 +628,7 @@ hr {
         position: absolute;
         top: 0;
         left: 0;
-        width: 100%;
+        width: 99%;
         height: 48px; /* Stripe height */
         display: flex;
         justify-content: center;
@@ -645,7 +645,7 @@ hr {
     
     .blank {
     height: 80px;
-    width: 100%;
+    width: 99%;
     clear: both;
 }
 }
@@ -655,7 +655,7 @@ hr {
         position: fixed;
         bottom: 0;
         left: 0;
-        width: 100%;
+        width: 99%;
         height: 55px; /* Height of the strip */
         background-color: black;
         display: flex;
