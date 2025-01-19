@@ -783,6 +783,31 @@ document.addEventListener("DOMContentLoaded", function () {
 </script>
 
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const userSection = document.querySelector(".user-section");
+    const userProfiles = Array.from(userSection.querySelectorAll(".user-profile"));
+
+    if (userProfiles.length > 0) {
+        // Shuffle the user profiles array
+        const shuffledProfiles = userProfiles.sort(() => Math.random() - 0.5);
+
+        // Clear the current user-section and append the shuffled profiles
+        userSection.innerHTML = ""; // Remove existing user profiles
+        shuffledProfiles.forEach(profile => userSection.appendChild(profile)); // Append in random order
+
+        // Check for mobile view (max-width: 768px)
+        if (window.matchMedia("(max-width: 768px)").matches) {
+            // Pick a random index and hide that user
+            const randomIndex = Math.floor(Math.random() * shuffledProfiles.length);
+            shuffledProfiles[randomIndex].style.display = "none";
+        }
+    }
+});
+
+</script>
+
+
 </body>
 </html>
 
