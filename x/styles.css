@@ -676,7 +676,7 @@ hr {
         display: none; /* Hide on desktop */
     }
     
-    .hr {
+    hr {
     border: 0;
     border-top: 1px solid #333;
     margin: 0 -20px; /* Negative margin to offset the padding of .main-content */
