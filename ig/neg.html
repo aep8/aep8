@@ -573,57 +573,92 @@ Language • Meta Verified </br> </br>
 </div>
     
 <script>
- document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function () {
     const videoContainers = document.querySelectorAll(".video-container");
+    let isMuted = true; // Global mute state
+    let isFirstClickHandled = false; // Tracks if the first click has occurred
+    let currentlyPlaying = null; // Tracks the currently playing video
+
+    const observer = new IntersectionObserver(entries => {
+        // Sort entries by their position on the screen (top to bottom)
+        const visibleVideos = entries
+            .filter(entry => entry.isIntersecting && entry.intersectionRatio === 1) // Fully visible
+            .sort((a, b) => a.target.getBoundingClientRect().top - b.target.getBoundingClientRect().top);
+
+        // Handle which video plays
+        visibleVideos.forEach((entry, index) => {
+            const video = entry.target;
+            if (index === 0) {
+                // Play the first fully visible video
+                if (currentlyPlaying && currentlyPlaying !== video) {
+                    currentlyPlaying.pause();
+                }
+                video.play().catch(error => console.error("Autoplay failed:", error));
+                currentlyPlaying = video;
+            } else {
+                // Pause all other videos
+                video.pause();
+            }
+        });
+
+        // Pause any currently playing video if none are fully visible
+        if (visibleVideos.length === 0 && currentlyPlaying) {
+            currentlyPlaying.pause();
+            currentlyPlaying = null;
+        }
+    }, { threshold: [1.0] }); // Trigger only when 100% visible
 
     videoContainers.forEach(container => {
         const video = container.querySelector("video");
         const overlay = container.querySelector(".video-overlay");
 
-        // Ensure videos play when visible
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    video.play().catch(error => {
-                        console.error("Autoplay failed:", error);
-                    });
-                } else {
-                    video.pause();
-                }
-            });
-        }, { threshold: 0.5 }); // Trigger when 50% of the video is visible
-
+        // Observe video visibility
         observer.observe(video);
 
-        // Mute/Unmute on overlay click
-        overlay.addEventListener("click", () => {
-            video.muted = !video.muted;
-            overlay.style.display = video.muted ? "block" : "none";
-        });
+        // Always loop videos and prevent pausing
+        video.loop = true;
 
-        // Handle touch interaction for mobile (show controls on first tap)
-        let firstTap = true;
-        video.addEventListener("click", () => {
-            if (firstTap) {
-                video.muted = false;
-                video.controls = false;
-                firstTap = false;
-            } else {
-                video.controls = true;
+        video.addEventListener("play", () => {
+            if (video.paused) {
+                video.play();
             }
         });
 
-        // Hide controls on mouse leave
-        container.addEventListener("mouseleave", () => {
-            video.controls = false;
+        // Toggle sound on click
+        video.addEventListener("click", () => {
+            if (!isFirstClickHandled) {
+                isFirstClickHandled = true;
+                isMuted = false; // Unmute all videos globally
+            } else {
+                isMuted = !isMuted; // Toggle sound state
+            }
+            updateMuteState();
         });
 
-        // Show controls on mouse enter (desktop only)
-        container.addEventListener("mouseenter", () => {
-            video.controls = true;
+        overlay.addEventListener("click", () => {
+            isMuted = !isMuted; // Toggle sound state
+            updateMuteState();
         });
+
+        // Prevent controls from showing
+        video.controls = false;
+
+        // Hide the overlay if sound is on
+        overlay.style.display = isMuted ? "block" : "none";
     });
+
+    // Update the mute state for all videos
+    function updateMuteState() {
+        videoContainers.forEach(container => {
+            const video = container.querySelector("video");
+            const overlay = container.querySelector(".video-overlay");
+
+            video.muted = isMuted;
+            overlay.style.display = isMuted ? "block" : "none";
+        });
+    }
 });
+
 </script>
 
 
