@@ -44,6 +44,7 @@ body {
     display: flex;
     justify-content: center;
     overflow-x: hidden;
+    overscroll-behavior-x: none; /* Prevent bounce effect */
     overscroll-behavior: none; /* Prevents the bounce effect at the edges of the document */
 
 }
@@ -574,7 +575,7 @@ hr {
     
     .tweet-image {
 margin-left: -10px;
-    width: calc(100% + 20px); /* Ensure the image takes the full width of the tweet content */
+    width: calc(100% + 17px); /* Ensure the image takes the full width of the tweet content */
     border-radius: 0px; /* Rounded corners */
     border: 1px solid #C7C7C7; /* Grey 1px outline */
     margin-bottom: 5px; /* Space between the text and the image */
@@ -582,7 +583,7 @@ margin-left: -10px;
 
 .video-container {
 margin-left: -10px;
-    width: calc(100% + 20px);
+    width: calc(100% + 17px);
     position: relative; /* Make container relative for absolute positioning of the overlay */
     padding: 0px 0px 5px;
 }
