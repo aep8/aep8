@@ -573,89 +573,57 @@ Language • Meta Verified </br> </br>
 </div>
     
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        const videoContainers = document.querySelectorAll('.video-container');
-        let currentlyPlaying = null; // To track the currently playing video
-        let isMuted = true; // Global sound state
+ document.addEventListener("DOMContentLoaded", function () {
+    const videoContainers = document.querySelectorAll(".video-container");
 
-        videoContainers.forEach(container => {
-            const video = container.querySelector('video');
-            const overlay = container.querySelector('.video-overlay');
-            let firstTap = true; // Track first tap for each video
+    videoContainers.forEach(container => {
+        const video = container.querySelector("video");
+        const overlay = container.querySelector(".video-overlay");
 
-            // Observer to ensure only one video plays at a time
-            const observer = new IntersectionObserver(function (entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && entry.intersectionRatio === 1) {
-                        // Pause any currently playing video
-                        if (currentlyPlaying && currentlyPlaying !== video) {
-                            currentlyPlaying.pause();
-                        }
-                        video.play().catch(error => {
-                            console.log('Video play failed:', error);
-                        });
-                        currentlyPlaying = video;
-                    } else {
-                        video.pause();
-                    }
-                });
-            }, { threshold: [1.0] });
-
-            observer.observe(video);
-
-            // Handle overlay click for global mute/unmute
-            overlay.addEventListener('click', function () {
-                toggleGlobalMute();
-            });
-
-            // Handle speaker control interaction for global mute/unmute
-            video.addEventListener('volumechange', function () {
-                if (video.muted !== isMuted) {
-                    isMuted = video.muted;
-                    updateGlobalMuteState();
-                }
-            });
-
-            container.addEventListener('mouseenter', function () {
-                if (!firstTap) {
-                    video.setAttribute('controls', 'controls');
-                }
-            });
-
-            container.addEventListener('mouseleave', function () {
-                video.removeAttribute('controls');
-            });
-
-            video.addEventListener('click', function () {
-                if (firstTap) {
-                    // First tap: unmute and keep controls hidden
-                    video.muted = false;
-                    video.controls = false;
-                    firstTap = false; // Mark first tap as handled
+        // Ensure videos play when visible
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play().catch(error => {
+                        console.error("Autoplay failed:", error);
+                    });
                 } else {
-                    // Subsequent taps: show controls
-                    video.controls = true;
+                    video.pause();
                 }
             });
+        }, { threshold: 0.5 }); // Trigger when 50% of the video is visible
+
+        observer.observe(video);
+
+        // Mute/Unmute on overlay click
+        overlay.addEventListener("click", () => {
+            video.muted = !video.muted;
+            overlay.style.display = video.muted ? "block" : "none";
         });
 
-        // Function to toggle the global mute state
-        function toggleGlobalMute() {
-            isMuted = !isMuted;
-            updateGlobalMuteState();
-        }
+        // Handle touch interaction for mobile (show controls on first tap)
+        let firstTap = true;
+        video.addEventListener("click", () => {
+            if (firstTap) {
+                video.muted = false;
+                video.controls = false;
+                firstTap = false;
+            } else {
+                video.controls = true;
+            }
+        });
 
-        // Function to update mute state across all videos and overlays
-        function updateGlobalMuteState() {
-            videoContainers.forEach(container => {
-                const vid = container.querySelector('video');
-                const overlay = container.querySelector('.video-overlay');
+        // Hide controls on mouse leave
+        container.addEventListener("mouseleave", () => {
+            video.controls = false;
+        });
 
-                vid.muted = isMuted;
-                overlay.style.display = isMuted ? 'block' : 'none';
-            });
-        }
+        // Show controls on mouse enter (desktop only)
+        container.addEventListener("mouseenter", () => {
+            video.controls = true;
+        });
     });
+});
 </script>
 
 
